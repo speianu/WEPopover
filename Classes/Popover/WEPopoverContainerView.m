@@ -69,8 +69,10 @@ permittedArrowDirections:(UIPopoverArrowDirection)permittedArrowDirections
 }
 
 - (void)drawRect:(CGRect)rect {
-	[bgImage drawInRect:bgRect blendMode:kCGBlendModeNormal alpha:1.0];
-	[arrowImage drawInRect:arrowRect blendMode:kCGBlendModeNormal alpha:1.0]; 
+    [super drawRect:rect];
+
+	[bgImage drawInRect:CGRectIntegral(bgRect) blendMode:kCGBlendModeNormal alpha:1.0];
+	[arrowImage drawInRect:CGRectIntegral(arrowRect) blendMode:kCGBlendModeNormal alpha:1.0];
 }
 
 - (void)updatePositionWithSize:(CGSize)theSize
