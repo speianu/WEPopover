@@ -138,7 +138,11 @@
 	[contentViewController view];
 	
 	if (CGSizeEqualToSize(popoverContentSize, CGSizeZero)) {
-		popoverContentSize = contentViewController.contentSizeForViewInPopover;
+        if ([contentViewController respondsToSelector:@selector(preferredContentSize)]) {
+            popoverContentSize = contentViewController.preferredContentSize;
+        } else {
+            popoverContentSize = contentViewController.contentSizeForViewInPopover;
+        }
 	}
 	
 	CGRect displayArea = [self displayAreaForView:theView];
@@ -223,7 +227,11 @@
     }
     
     if (CGSizeEqualToSize(popoverContentSize, CGSizeZero)) {
-		popoverContentSize = contentViewController.contentSizeForViewInPopover;
+        if ([contentViewController respondsToSelector:@selector(preferredContentSize)]) {
+            popoverContentSize = contentViewController.preferredContentSize;
+        } else {
+            popoverContentSize = contentViewController.contentSizeForViewInPopover;
+        }
 	}
 	
 	CGRect displayArea = [self displayAreaForView:theView];
