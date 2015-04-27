@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.source       =  { :git => 'https://github.com/speianu/WEPopover.git' }
   s.resources    =  '*.png'
   s.source_files =  'Classes/**/*.*'
+  s.requires_arc = false
 end
